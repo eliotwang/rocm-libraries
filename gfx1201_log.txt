@@ -1,0 +1,228 @@
+[  9%] Built target simple_sgemm
+[ 18%] Built target simple_hgemm
+[ 27%] Built target perf_sgemm
+[ 39%] Built target perf_dgemm
+[ 45%] Built target perf_hgemm
+[ 60%] Built target simple_dgemm
+[ 66%] Built target simple_sgemv
+[ 78%] Built target simple_dlrm
+[ 81%] Built target simple_dgemv
+[ 84%] Building CXX object samples/CMakeFiles/perf_i8gemm.dir/perf_i8gemm.cpp.o
+[ 93%] Built target hipRTC_gemm
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:29:
+In file included from /opt/rocm/include/hip/hip_ext.h:25:
+In file included from /opt/rocm/include/hip/hip_runtime.h:57:
+In file included from /opt/rocm/include/hip/amd_detail/amd_hip_runtime.h:101:
+In file included from /opt/rocm/include/hip/hip_runtime_api.h:592:
+In file included from /opt/rocm/include/hip/texture_types.h:46:
+In file included from /opt/rocm/include/hip/channel_descriptor.h:32:
+In file included from /opt/rocm/include/hip/amd_detail/amd_channel_descriptor.h:29:
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:348:37: error: implicit instantiation of undefined template 'HIP_vector_base<__hip_fp8_e4m3_fnuz, 16>'
+  348 |     struct HIP_vector_type : public HIP_vector_base<T, rank> {
+      |                                     ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:277:51: note: in instantiation of template class 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 16>' requested here
+  277 |             typename Traits::AccessT              mAccess; // Unpacked
+      |                                                   ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_a, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:316:12: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_a, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>' requested here
+  316 |     return apply_data_layout<DataLayoutLds>(grFragA);
+      |            ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:58:46: note: template is declared here
+   58 | template <typename T, unsigned int n> struct HIP_vector_base;
+      |                                              ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:349:22: error: implicit instantiation of undefined template 'HIP_vector_base<__hip_fp8_e4m3_fnuz, 16>'
+  349 |       using typename HIP_vector_base<T, rank>::Native_vec_;
+      |                      ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:58:46: note: template is declared here
+   58 | template <typename T, unsigned int n> struct HIP_vector_base;
+      |                                              ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:278:39: error: no type named 'Native_vec_' in 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 16>'
+  278 |             typename Traits::AccessT::Native_vec_ x; // Nuanced access
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_a, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:316:12: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_a, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>' requested here
+  316 |     return apply_data_layout<DataLayoutLds>(grFragA);
+      |            ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:27: error: static assertion failed due to requirement 'sizeof(HIP_vector_type<__hip_fp8_e4m3_fnuz, 16>) == sizeof(HIP_vector_type<float, 4>)': Storage type and access type should be views into the same raw data
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:60: note: expression evaluates to '1 == 16'
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:29:
+In file included from /opt/rocm/include/hip/hip_ext.h:25:
+In file included from /opt/rocm/include/hip/hip_runtime.h:57:
+In file included from /opt/rocm/include/hip/amd_detail/amd_hip_runtime.h:101:
+In file included from /opt/rocm/include/hip/hip_runtime_api.h:592:
+In file included from /opt/rocm/include/hip/texture_types.h:46:
+In file included from /opt/rocm/include/hip/channel_descriptor.h:32:
+In file included from /opt/rocm/include/hip/amd_detail/amd_channel_descriptor.h:29:
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:348:37: error: implicit instantiation of undefined template 'HIP_vector_base<__hip_fp8_e4m3_fnuz, 8>'
+  348 |     struct HIP_vector_type : public HIP_vector_base<T, rank> {
+      |                                     ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:277:51: note: in instantiation of template class 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 8>' requested here
+  277 |             typename Traits::AccessT              mAccess; // Unpacked
+      |                                                   ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_b, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::row_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:320:45: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_b, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::row_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>' requested here
+  320 |     return apply_data_layout<DataLayoutLds>(apply_transpose(grFragB));
+      |                                             ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:58:46: note: template is declared here
+   58 | template <typename T, unsigned int n> struct HIP_vector_base;
+      |                                              ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:349:22: error: implicit instantiation of undefined template 'HIP_vector_base<__hip_fp8_e4m3_fnuz, 8>'
+  349 |       using typename HIP_vector_base<T, rank>::Native_vec_;
+      |                      ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:58:46: note: template is declared here
+   58 | template <typename T, unsigned int n> struct HIP_vector_base;
+      |                                              ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:278:39: error: no type named 'Native_vec_' in 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 8>'
+  278 |             typename Traits::AccessT::Native_vec_ x; // Nuanced access
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_b, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::row_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:320:45: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_b, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::row_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>' requested here
+  320 |     return apply_data_layout<DataLayoutLds>(apply_transpose(grFragB));
+      |                                             ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:27: error: static assertion failed due to requirement 'sizeof(HIP_vector_type<__hip_fp8_e4m3_fnuz, 8>) == sizeof(HIP_vector_type<float, 2>)': Storage type and access type should be views into the same raw data
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:60: note: expression evaluates to '1 == 8'
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:278:39: error: no type named 'Native_vec_' in 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 8>'
+  278 |             typename Traits::AccessT::Native_vec_ x; // Nuanced access
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_a, 64, 128, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:320:12: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_a, 64, 128, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>' requested here
+  320 |     return apply_data_layout<DataLayoutLds>(apply_transpose(grFragB));
+      |            ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:27: error: static assertion failed due to requirement 'sizeof(HIP_vector_type<__hip_fp8_e4m3_fnuz, 8>) == sizeof(HIP_vector_type<float, 2>)': Storage type and access type should be views into the same raw data
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:60: note: expression evaluates to '1 == 8'
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:29:
+In file included from /opt/rocm/include/hip/hip_ext.h:25:
+In file included from /opt/rocm/include/hip/hip_runtime.h:57:
+In file included from /opt/rocm/include/hip/amd_detail/amd_hip_runtime.h:101:
+In file included from /opt/rocm/include/hip/hip_runtime_api.h:592:
+In file included from /opt/rocm/include/hip/texture_types.h:46:
+In file included from /opt/rocm/include/hip/channel_descriptor.h:32:
+In file included from /opt/rocm/include/hip/amd_detail/amd_channel_descriptor.h:29:
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:348:37: error: implicit instantiation of undefined template 'HIP_vector_base<__hip_fp8_e4m3_fnuz, 32>'
+  348 |     struct HIP_vector_type : public HIP_vector_base<T, rank> {
+      |                                     ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:277:51: note: in instantiation of template class 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 32>' requested here
+  277 |             typename Traits::AccessT              mAccess; // Unpacked
+      |                                                   ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_a, 64, 32, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:331:12: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_a, 64, 32, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major>' requested here
+  331 |     return apply_data_layout<DataLayoutA>(lrFragA);
+      |            ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:58:46: note: template is declared here
+   58 | template <typename T, unsigned int n> struct HIP_vector_base;
+      |                                              ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:349:22: error: implicit instantiation of undefined template 'HIP_vector_base<__hip_fp8_e4m3_fnuz, 32>'
+  349 |       using typename HIP_vector_base<T, rank>::Native_vec_;
+      |                      ^
+/opt/rocm/include/hip/amd_detail/amd_hip_vector_types.h:58:46: note: template is declared here
+   58 | template <typename T, unsigned int n> struct HIP_vector_base;
+      |                                              ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:278:39: error: no type named 'Native_vec_' in 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 32>'
+  278 |             typename Traits::AccessT::Native_vec_ x; // Nuanced access
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_a, 64, 32, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:331:12: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_a, 64, 32, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major>' requested here
+  331 |     return apply_data_layout<DataLayoutA>(lrFragA);
+      |            ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:27: error: static assertion failed due to requirement 'sizeof(HIP_vector_type<__hip_fp8_e4m3_fnuz, 32>) == sizeof(HIP_vector_type<float, 8>)': Storage type and access type should be views into the same raw data
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:60: note: expression evaluates to '1 == 32'
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:278:39: error: no type named 'Native_vec_' in 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 16>'
+  278 |             typename Traits::AccessT::Native_vec_ x; // Nuanced access
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_a, 32, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:335:43: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_a, 32, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major>' requested here
+  335 |     return apply_data_layout<DataLayoutB>(apply_transpose(lrFragB));
+      |                                           ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:27: error: static assertion failed due to requirement 'sizeof(HIP_vector_type<__hip_fp8_e4m3_fnuz, 16>) == sizeof(HIP_vector_type<float, 4>)': Storage type and access type should be views into the same raw data
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:60: note: expression evaluates to '1 == 16'
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:278:39: error: no type named 'Native_vec_' in 'HIP_vector_type<__hip_fp8_e4m3_fnuz, 16>'
+  278 |             typename Traits::AccessT::Native_vec_ x; // Nuanced access
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9: note: in instantiation of member class 'rocwmma::fragment<rocwmma::matrix_b, 64, 32, 16, __hip_fp8_e4m3_fnuz, rocwmma::row_major>::(anonymous union at /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:274:9)' requested here
+  274 |         union
+      |         ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:335:12: note: in instantiation of template class 'rocwmma::fragment<rocwmma::matrix_b, 64, 32, 16, __hip_fp8_e4m3_fnuz, rocwmma::row_major>' requested here
+  335 |     return apply_data_layout<DataLayoutB>(apply_transpose(lrFragB));
+      |            ^
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:27: error: static assertion failed due to requirement 'sizeof(HIP_vector_type<__hip_fp8_e4m3_fnuz, 16>) == sizeof(HIP_vector_type<float, 4>)': Storage type and access type should be views into the same raw data
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:279:60: note: expression evaluates to '1 == 16'
+  279 |             static_assert(sizeof(typename Traits::AccessT) == sizeof(typename Traits::StorageT),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:33:
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma.hpp:29:
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/internal/accessors.hpp:29:
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/internal/accessors_impl.hpp:32:
+In file included from /workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/internal/io_config.hpp:36:
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/internal/opaque_load.hpp:44:27: error: static assertion failed due to requirement 'sizeof(__hip_fp8_e4m3_fnuz[16]) == sizeof(HIP_vector_type<__hip_fp8_e4m3_fnuz, 16>)': Cannot vectorize input
+   44 |             static_assert(sizeof(DataT[VectorWidth]) == sizeof(VecT<DataT, VectorWidth>),
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/internal/io_bearer_base.hpp:62:34: note: in instantiation of template class 'rocwmma::detail::amdgcn_opaque_load<__hip_fp8_e4m3_fnuz, 16>' requested here
+   62 |         using BufferT = typename BearerPolicy<DataT, BuffSize>::BufferT;
+      |                                  ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/internal/io_bearer.hpp:49:33: note: in instantiation of template class 'rocwmma::IOBearerBase<rocwmma::detail::DataSpace<rocwmma::col_major>, rocwmma::MatrixLayout::MatrixCoopLayout<rocwmma::MatrixLayout::ColInlineInt<128, 16, __hip_fp8_e4m3_fnuz, 16, 4>, 4>, rocwmma::detail::OpaqueLoadBearer, rocwmma::IOBoundsCtrl::Default>' requested here
+   49 |     struct IOBearer : protected IOBearerBase<DataLayout, MatrixLayout, BearerPolicy, BoundsCtrl>
+      |                                 ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/internal/opaque_load.hpp:71:18: note: in instantiation of template class 'rocwmma::IOBearer<rocwmma::detail::DataSpace<rocwmma::col_major>, rocwmma::MatrixLayout::MatrixCoopLayout<rocwmma::MatrixLayout::ColInlineInt<128, 16, __hip_fp8_e4m3_fnuz, 16, 4>, 4>, rocwmma::detail::OpaqueLoadBearer, rocwmma::IOBoundsCtrl::Default, rocwmma::IOScheduler::RowMajor2d<64, 2>>' requested here
+   71 |         : public IOBearer<DataLayout, MatrixLayout, detail::OpaqueLoadBearer, BoundsCtrl, Scheduler>
+      |                  ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/rocwmma_impl.hpp:182:72: note: in instantiation of template class 'rocwmma::OpaqueLoad<rocwmma::detail::DataSpace<rocwmma::col_major>, rocwmma::MatrixLayout::MatrixCoopLayout<rocwmma::MatrixLayout::ColInlineInt<128, 16, __hip_fp8_e4m3_fnuz, 16, 4>, 4>, rocwmma::IOBoundsCtrl::Default, rocwmma::IOScheduler::RowMajor2d<64, 2>>' requested here
+  182 |         static_assert(is_same_v<typename FragTraits::AccessT, typename Loader::BufferT>,
+      |                                                                        ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/samples/perf_i8gemm.cpp:390:5: note: in instantiation of function template specialization 'rocwmma::load_matrix_sync<rocwmma::fragment<rocwmma::matrix_a, 128, 64, 16, __hip_fp8_e4m3_fnuz, rocwmma::col_major, rocwmma::IOScheduler::RowMajor2d<64, 2>>, __hip_fp8_e4m3_fnuz>' requested here
+  390 |     load_matrix_sync(grFragA, a + globalReadOffsetA, lda);
+      |     ^
+/workspace/SageAttention/third_party/rocm-libraries/projects/rocwmma/library/include/rocwmma/internal/opaque_load.hpp:44:54: note: expression evaluates to '16 == 1'
+   44 |             static_assert(sizeof(DataT[VectorWidth]) == sizeof(VecT<DataT, VectorWidth>),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated when compiling for gfx1201.
+gmake[2]: *** [samples/CMakeFiles/perf_i8gemm.dir/build.make:79: samples/CMakeFiles/perf_i8gemm.dir/perf_i8gemm.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:569: samples/CMakeFiles/perf_i8gemm.dir/all] Error 2
+gmake: *** [Makefile:166: all] Error 2
